@@ -1,9 +1,14 @@
+
+function convertToNumber(priceFormat){
+    return priceFormat.replace(/\./g, '').replace(',', '.');
+}
+
 var products = [
     {
         id: 1,
         name: 'ASUS ROG Strix Scar 18',
         description: 'Intel Core i9-14900K',
-        price: 35.000,
+        price: 35000,
         category: 2,
         promotion: true,
         new: true
@@ -12,7 +17,7 @@ var products = [
         id: 2,
         name: 'Acer Nitro 5 AN515-58-54UH',
         description: 'Intel Core i5-14600KF',
-        price: 15.000,
+        price: 15000,
         category: 3,
         promotion: false,
         new: true
@@ -21,7 +26,7 @@ var products = [
         id: 3,
         name: 'Acer Nitro 5 AN515-58-54UH',
         description: 'Intel Core i5-13400',
-        price: 30.000,
+        price: 30000,
         category: 1,
         promotion: false,
         new: false
@@ -37,6 +42,22 @@ var categorias = [
 
 
 loadProducts()
+
+function save(){
+    var prod = {
+        id: products.length + 1,
+        name: document.getElementById("inputName").value,
+        description: document.getElementById("inputDescription").value,
+        price: convertToNumber(document.getElementById("inputPrice").value),
+        category: document.getElementById("selectCategory").value,
+        promotion: document.getElementById("checkBoxPromotion").checked,
+        new: document.getElementById("CheckBoxNewProduct").checked
+    }
+
+    addNewRow(prod)
+    products.push(prod)
+    document.getElementById("formProduct").reset()
+}
 
 function loadProducts() {
     for (let prod of products) {
