@@ -6,8 +6,8 @@ function convertToNumber(priceFormat){
 var products = [
     {
         id: 1,
-        name: 'ASUS ROG Strix Scar 18',
-        description: 'Intel Core i9-14900K',
+        name: "ASUS ROG Strix Scar 18",
+        description: "Intel Core i9-14900K",
         price: 35000,
         category: 2,
         promotion: true,
@@ -15,8 +15,8 @@ var products = [
     },
     {
         id: 2,
-        name: 'Acer Nitro 5 AN515-58-54UH',
-        description: 'Intel Core i5-14600KF',
+        name: "Acer Nitro 5 AN515-58-54UH",
+        description: "Intel Core i5-14600KF",
         price: 15000,
         category: 3,
         promotion: false,
@@ -24,8 +24,8 @@ var products = [
     },
     {
         id: 3,
-        name: 'Acer Nitro 5 AN515-58-54UH',
-        description: 'Intel Core i5-13400',
+        name: "Acer Nitro 5 AN515-58-54UH",
+        description: "Intel Core i5-13400",
         price: 30000,
         category: 1,
         promotion: false,
@@ -60,6 +60,7 @@ function save(){
 }
 
 function loadProducts() {
+
     for (let prod of products) {
         addNewRow(prod)
     }
@@ -68,31 +69,59 @@ function loadProducts() {
 
 function addNewRow(prod) {
 
-var formatter = new Intl.NumberFormat('pt-br',{
-    style: 'currency',
-    currency: 'BRL'
+
+
+var formatter = new Intl.NumberFormat("pt-br",{
+    style: "currency",
+    currency: "BRL"
 })
 
     var table = document.getElementById("productsTable");
 
     var newRow = table.insertRow()
 
-
+    
+    
 
     var idNode = document.createTextNode(prod.id);
-    newRow.insertCell().appendChild(idNode);
-    newRow.insertCell().innerHTML = prod.name;
-    newRow.insertCell().innerHTML = prod.description;
-    newRow.insertCell().innerHTML = formatter.format(prod.price);
+
+    var cell = newRow.insertCell()
+
+    
+    
+    cell.appendChild(idNode);
+    
+
+    
+    var cell = newRow.insertCell()
+    
+    cell.innerHTML = prod.name;
+
+
+    cell = newRow.insertCell()
+    cell.className = "d-none d-md-table-cell"
+    
+    
+    cell.innerHTML = prod.description;
+    
+    cell = newRow.insertCell()
+    
+    cell.innerHTML = formatter.format(prod.price);
     for (let cat of categorias) {
         if (cat.id == prod.category) {
-            newRow.insertCell().innerHTML = cat.name
+            cell = newRow.insertCell()
+            cell.innerHTML = cat.name
         }
 
     }
-    newRow.insertCell().innerHTML = `<span class="badge text-bg-success">${prod.promotion ? 'P' : ''}</span> <span class="badge text-bg-primary">${prod.new ? 'L' : ''}</span>`
 
-
+    cell = newRow.insertCell()
+    cell.className = "d-none d-md-table-cell"
+    cell.innerHTML = `<span class="badge text-bg-success">${prod.promotion ? 'P' : ''}</span> <span class="badge text-bg-primary">${prod.new ? 'L' : ''}</span>`
+    
+    
+    
+    
 }
 
 /*
