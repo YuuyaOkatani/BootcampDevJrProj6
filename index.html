@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-3 mt-3" >
+                        <div class="row mb-3 mt-3">
                             <button type="submit" class="btn btn-primary col-sm-1"> cadastrar</button>
                         </div>
 
@@ -96,50 +96,24 @@
                 Produtos cadastrados:
             </div>
             <div class="col-md-10 offset-md-1">
-                <table class="table">
+                <table class="table" id="productsTable">
                     <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Preço</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Opções</th>
-                      </tr>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Preço</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Opções</th>
+                        </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>ASUS ROG Strix Scar 18</td>
-                        <td>Intel Core i9-14900K</td>
-                        <td>R$ 35.000,00</td>
-                        <td>Nacional</td>
-                        <td>
-                            <span class="badge text-bg-success">P</span>
-                            <span class="badge text-bg-primary">L</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Acer Nitro 5 AN515-58-54UH</td>
-                        <td>Intel Core i5-14600KF</td>
-                        <td>R$ 15.000,00</td>
-                        <td>Importado</td>
-                        <td> <span class="badge text-bg-primary">L</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Lenovo Legion 7i</td>
-                        <td>Intel Core i5-13400</td>
-                        <td>R$ 30.000,00</td>
-                        <td>Produção Própria</td>
-                        <td></td>
-                      </tr>
+
                     </tbody>
-                  </table>
+                </table>
 
             </div>
-            
+
         </section>
     </main>
 
@@ -152,6 +126,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js">
+
+    </script>
+    <script>
+        $('#inputPrice').mask("#.##0,00", {reverse: true});
+    </script>
+
 </body>
 
 </html>
